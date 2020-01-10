@@ -9,8 +9,9 @@
 
 .containerH {
   display: flex; /* or inline-flex */
-  padding: 50px;
   align-content: flex-start;
+  padding: 20px;
+  margin: 20px;
 }
 
 .containerV {
