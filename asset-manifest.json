@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/snowflake/static/css/main.7b35dffe.chunk.css",
+    "main.css": "/snowflake/static/css/main.73e51e7b.chunk.css",
     "main.js": "/snowflake/static/js/main.656332fe.chunk.js",
     "main.js.map": "/snowflake/static/js/main.656332fe.chunk.js.map",
     "runtime-main.js": "/snowflake/static/js/runtime-main.a4b62956.js",
@@ -8,16 +8,16 @@
     "static/js/2.fc98d4cd.chunk.js": "/snowflake/static/js/2.fc98d4cd.chunk.js",
     "static/js/2.fc98d4cd.chunk.js.map": "/snowflake/static/js/2.fc98d4cd.chunk.js.map",
     "index.html": "/snowflake/index.html",
-    "precache-manifest.4644ee6f72e3b09dcde67176cfd2bff5.js": "/snowflake/precache-manifest.4644ee6f72e3b09dcde67176cfd2bff5.js",
+    "precache-manifest.07dc7fd17dee801029535b8929718eb7.js": "/snowflake/precache-manifest.07dc7fd17dee801029535b8929718eb7.js",
     "service-worker.js": "/snowflake/service-worker.js",
-    "static/css/main.7b35dffe.chunk.css.map": "/snowflake/static/css/main.7b35dffe.chunk.css.map",
+    "static/css/main.73e51e7b.chunk.css.map": "/snowflake/static/css/main.73e51e7b.chunk.css.map",
     "static/js/2.fc98d4cd.chunk.js.LICENSE": "/snowflake/static/js/2.fc98d4cd.chunk.js.LICENSE",
     "static/media/logo.svg": "/snowflake/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.a4b62956.js",
     "static/js/2.fc98d4cd.chunk.js",
-    "static/css/main.7b35dffe.chunk.css",
+    "static/css/main.73e51e7b.chunk.css",
     "static/js/main.656332fe.chunk.js"
   ]
 }
