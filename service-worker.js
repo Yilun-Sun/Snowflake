@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/snowflake/precache-manifest.38384380167832f90acfc5be212630a7.js"
+  "/snowflake/precache-manifest.4644ee6f72e3b09dcde67176cfd2bff5.js"
 );
 
 self.addEventListener('message', (event) => {
