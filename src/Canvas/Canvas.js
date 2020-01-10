@@ -35,6 +35,9 @@ let angle = 360 / symmetry;
 // let slider;
 // let xoff = 0;
 
+var canvasElementOffsetLeft;
+var canvasElementOffsetTop;
+
 class Canvas extends React.Component {
     constructor(props) {
         super(props);
@@ -45,6 +48,10 @@ class Canvas extends React.Component {
     componentDidMount() {
         this.updateCanvas();
         this.drawCoordinateLine();
+
+        var canvasElement = document.getElementById("canvas");
+        canvasElementOffsetLeft = canvasElement.offsetLeft;
+        canvasElementOffsetTop = canvasElement.offsetTop;
     }
     componentDidUpdate() {
         this.updateCanvas();
@@ -62,34 +69,39 @@ class Canvas extends React.Component {
 
         for (let i = 0; i < 3; i++) {
             const coorLength = height / 20;
-            for (let t = 0; t < 40; t+=2){
-                ctx.moveTo(0, height - coorLength * (t - 1.5));
-                ctx.lineTo(0, height - coorLength * (t - 0.5));
+            for (let t = 0; t < 20; t += 2) {
+                ctx.moveTo(0, height - coorLength * (t + 11.5));
+                ctx.lineTo(0, height - coorLength * (t + 10.5));
             }
-            
+
             ctx.stroke();
             ctx.rotate(Math.PI * 2 / symmetry);
         }
     }
 
-    handleMouseDown = (e) => {
+    handleMouseDown = (event) => {
         console.log('mouse down');
 
         this.isMouseDown = true;
 
-        prevX = e.clientX - width / 2
-        prevY = e.clientY - height / 2
+        prevX = event.pageX - canvasElementOffsetLeft - width / 2;
+        prevY = event.pageY - canvasElementOffsetTop - height / 2;
     }
 
-    handleMouseUp = (e) => {
+    handleMouseUp = (event) => {
         console.log('mouse up');
 
         this.isMouseDown = false;
     }
 
-    handleMouseMove = (e) => {
-        var x = e.clientX - width / 2;
-        var y = e.clientY - height / 2;
+    handleMouseMove = (event) => {
+        // var x = event.clientX - width / 2;
+        // var y = event.clientY - height / 2;
+
+        var x = event.pageX - canvasElementOffsetLeft - width / 2;
+        var y = event.pageY - canvasElementOffsetTop - height / 2;
+
+        
 
         if (x > width / 2 - 10 || x < - width / 2 + 10 || y > height / 2 - 10 || y < - height / 2 + 10) {
             this.isMouseDown = false;

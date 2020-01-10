@@ -4,8 +4,9 @@ import './App.css';
 import Canvas from './Canvas/Canvas';
 import CoordinateCanvas from './Canvas/CoordinateCanvas';
 import styles from './CSS/Button.module.css';
+import './CSS/AwesomeHoverBtn.scss';
 
-let test = '<= Draw a snowflake you like';
+let test = 'Draw a snowflake   ';
 
 function to_image() {
   var canvas = document.getElementById("canvas");
@@ -25,53 +26,20 @@ function downloadImage(data, filename) {
   a.click();
 }
 
-
+const textareaStyle = {
+  border: 0,
+  borderRadius: '5px',
+  backgroundColor: '#FFFFFF',
+  width: '200px',
+  height: '57px'
+};
 
 function App() {
-  const docStyle = document.documentElement.style
-  const aElem = document.querySelector('a')
-  const boundingClientRect = aElem.getBoundingClientRect()
-
-  aElem.onmousemove = function (e) {
-
-    const x = e.clientX - boundingClientRect.left
-    const y = e.clientY - boundingClientRect.top
-
-    const xc = boundingClientRect.width / 2
-    const yc = boundingClientRect.height / 2
-
-    const dx = x - xc
-    const dy = y - yc
-
-    docStyle.setProperty('--rx', `${dy / -1}deg`)
-    docStyle.setProperty('--ry', `${dx / 10}deg`)
-
-  }
-
-  aElem.onmouseleave = function (e) {
-
-    docStyle.setProperty('--ty', '0')
-    docStyle.setProperty('--rx', '0')
-    docStyle.setProperty('--ry', '0')
-
-  }
-
-  aElem.onmousedown = function (e) {
-
-    docStyle.setProperty('--tz', '-25px')
-
-  }
-
-  document.body.onmouseup = function (e) {
-
-    docStyle.setProperty('--tz', '-12px')
-
-  }
-
-  
   return (
-    <div className="App">
-      <header className="container">
+    <div className="App" style={{
+      backgroundColor: '#535953'
+    }}>
+      <header className="containerH">
 
         <Canvas />
 
@@ -79,11 +47,13 @@ function App() {
 
 
       </header>
-      <div className="container">
-        <div>Name: </div>
-        <textarea id='filenameTextArea'></textarea>
-        <button className={styles.btngradientorange} onClick={to_image}>Save as Image</button>
-        <button className="a">Awesome Button</button>
+      <div className="containerH">
+
+        <div className="Heading2">Name: </div>
+        <textarea id='filenameTextArea' style={textareaStyle}></textarea>
+        <div className="spaceBar"></div>
+        <div><button class="btn btn--stripe" onClick={to_image}>Save as Image</button></div>
+
       </div>
 
     </div>

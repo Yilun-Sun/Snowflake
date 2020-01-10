@@ -3,11 +3,25 @@
 }
 
 .Heading2 {
+  color: aliceblue;
   font-size: 40px;
 }
 
-.container {
+.containerH {
   display: flex; /* or inline-flex */
+  padding: 50px;
+  align-content: flex-start;
+}
+
+.containerV {
+  display: flow; /* or inline-flow */
+  align-items: center;
+
+}
+
+.spaceBar {
+  padding: 20px;
+  margin: 20px;
 }
 
 .App-logo {
