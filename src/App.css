@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.Heading2 {
+  font-size: 40px;
+}
+
+.container {
+  display: flex; /* or inline-flex */
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
