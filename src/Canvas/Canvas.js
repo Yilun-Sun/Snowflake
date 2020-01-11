@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from '../CSS/Button.module.css';
+
 // function outlinedRect(props) {
 //     const { ctx, x, y, width, height } = props;
 //     ctx.rect(x, y, width, height);
@@ -38,6 +40,7 @@ let angle = 360 / symmetry;
 var canvasElementOffsetLeft;
 var canvasElementOffsetTop;
 
+
 class Canvas extends React.Component {
     constructor(props) {
         super(props);
@@ -63,6 +66,9 @@ class Canvas extends React.Component {
 
         filledCircle({ ctx, x: 0, y: 0, radius: 400, color: "#2C2C2C" });
     }
+
+
+
     drawCoordinateLine() {
         const ctx = this.refs.canvas.getContext('2d');
         ctx.strokeStyle = "#FFFFFB";
@@ -84,6 +90,11 @@ class Canvas extends React.Component {
 
         this.isMouseDown = true;
 
+        // if window is resized
+        var canvasElement = document.getElementById("canvas");
+        canvasElementOffsetLeft = canvasElement.offsetLeft;
+        canvasElementOffsetTop = canvasElement.offsetTop;
+
         prevX = event.pageX - canvasElementOffsetLeft - width / 2;
         prevY = event.pageY - canvasElementOffsetTop - height / 2;
     }
@@ -101,7 +112,7 @@ class Canvas extends React.Component {
         var x = event.pageX - canvasElementOffsetLeft - width / 2;
         var y = event.pageY - canvasElementOffsetTop - height / 2;
 
-        
+
 
         if (x > width / 2 - 10 || x < - width / 2 + 10 || y > height / 2 - 10 || y < - height / 2 + 10) {
             this.isMouseDown = false;
@@ -133,9 +144,52 @@ class Canvas extends React.Component {
         }
     }
 
+
+    clearCanvas() {
+        const ctx = document.getElementById("canvas").getContext('2d');
+        // Store the current transformation matrix
+        ctx.save();
+
+        // Use the identity matrix while clearing the canvas
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.clearRect(0, 0, width, height);
+
+        // Restore the transform
+        ctx.restore();
+
+        filledCircle({ ctx, x: 0, y: 0, radius: 400, color: "#2C2C2C" });
+
+
+        ctx.strokeStyle = "#FFFFFB";
+
+        for (let i = 0; i < 3; i++) {
+            const coorLength = height / 20;
+            for (let t = 0; t < 20; t += 2) {
+                ctx.moveTo(0, height - coorLength * (t + 11.5));
+                ctx.lineTo(0, height - coorLength * (t + 10.5));
+            }
+
+            ctx.stroke();
+            ctx.rotate(Math.PI * 2 / symmetry);
+        }
+
+    }
+
     render() {
+        const clearButtonStyle = {
+            // border: 0,
+            // borderRadius: '5px',
+            // backgroundColor: '#FFFFFF',
+            width: '200px',
+            height: '60px',
+            fontSize: '20px'
+        };
+
         return (
-            <canvas id='canvas' onMouseUp={this.handleMouseUp} onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove} ref="canvas" width={width} height={height} />
+            <React.Fragment>
+                <canvas id='canvas' onMouseUp={this.handleMouseUp} onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove} ref="canvas" width={width} height={height} />
+                <button onClick={this.clearCanvas} class="btn btn--stripe" style={clearButtonStyle}>Clear Canvas</button>
+            </React.Fragment>
         );
     }
 }

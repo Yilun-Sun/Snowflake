@@ -40,10 +40,10 @@ function App() {
       backgroundColor: '#535953'
     }}>
       <header className="containerH">
-
+        <div className="Heading2">{test}</div>
         <Canvas />
 
-        <div className="Heading2">{test}</div>
+
 
 
       </header>
