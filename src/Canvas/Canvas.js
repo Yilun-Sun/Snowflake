@@ -64,7 +64,7 @@ class Canvas extends React.Component {
         ctx.translate(width / 2, height / 2);
         ctx.clearRect(0, 0, 800, 800);
 
-        filledCircle({ ctx, x: 0, y: 0, radius: 400, color: "#2C2C2C" });
+        filledCircle({ ctx, x: 0, y: 0, radius: 400, color: "#2B5F75" });
     }
 
 
@@ -157,7 +157,7 @@ class Canvas extends React.Component {
         // Restore the transform
         ctx.restore();
 
-        filledCircle({ ctx, x: 0, y: 0, radius: 400, color: "#2C2C2C" });
+        filledCircle({ ctx, x: 0, y: 0, radius: 400, color: "#2B5F75" });
 
 
         ctx.strokeStyle = "#FFFFFB";
@@ -180,7 +180,7 @@ class Canvas extends React.Component {
             // border: 0,
             // borderRadius: '5px',
             // backgroundColor: '#FFFFFF',
-            width: '200px',
+            width: '250px',
             height: '60px',
             fontSize: '20px'
         };

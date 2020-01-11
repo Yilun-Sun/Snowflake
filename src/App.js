@@ -6,7 +6,8 @@ import CoordinateCanvas from './Canvas/CoordinateCanvas';
 import styles from './CSS/Button.module.css';
 import './CSS/AwesomeHoverBtn.scss';
 
-let test = 'Draw a snowflake   ';
+let test1 = 'Draw a snowflake    ';
+let test2 = '画个雪花儿    ';
 
 function to_image() {
   var canvas = document.getElementById("canvas");
@@ -31,16 +32,21 @@ const textareaStyle = {
   borderRadius: '5px',
   backgroundColor: '#FFFFFF',
   width: '200px',
-  height: '57px'
+  height: '57px',
+  fontSize: '40px',
 };
 
 function App() {
   return (
     <div className="App" style={{
-      backgroundColor: '#535953'
+      backgroundColor: '#6699A1'
     }}>
       <header className="containerH">
-        <div className="Heading2">{test}</div>
+        <div className="containerV">
+          <div className="Heading2">{test1}</div>
+          <div className="Heading2">{test2}</div>
+        </div>
+
         <Canvas />
 
 
@@ -49,7 +55,7 @@ function App() {
       </header>
       <div className="containerH">
 
-        <div className="Heading2">Name: </div>
+        <div className="Heading2" >起名儿: </div>
         <textarea id='filenameTextArea' style={textareaStyle}></textarea>
         <div className="spaceBar"></div>
         <div><button class="btn btn--stripe" onClick={to_image}>Save as Image</button></div>
