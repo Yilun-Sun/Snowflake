@@ -180,7 +180,7 @@ class Canvas extends React.Component {
             // border: 0,
             // borderRadius: '5px',
             // backgroundColor: '#FFFFFF',
-            width: '250px',
+            width: '270px',
             height: '60px',
             fontSize: '20px'
         };
